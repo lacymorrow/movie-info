@@ -16,13 +16,13 @@ $ npm install --save movie-info
 
 var movieInfo = require('movie-info');
 
-movieInfo('Oceans Eleven', function (err, url) {
-    console.log(url);
+movieInfo('Oceans Eleven', function (err, res) {
+    console.log(res);
     //=> { ... }
 });
 
-movieInfo('Oceans Eleven', '1960', function (err, url) {
-    console.log(url);
+movieInfo('Oceans Eleven', '1960', function (err, res) {
+    console.log(res);
     //=> { ... }
 });
 ```
@@ -46,8 +46,24 @@ Type: `string`
 Optional movie year.
 
 
-#### callback(err, url)
+#### callback(err, res)
 
+Returns an object in the following form:
+
+```js
+{
+    adult: false,
+    backdrop_path: '/lhkU86q5cszZkca9MVQLMvUAE6m.jpg',
+    id: 1640,
+    original_title: 'Crash',
+    release_date: '2004-09-10',
+    poster_path: '/pG8LL4LYMCr5uikhx9rewrW8352.jpg',
+    popularity: 3.30511799781063,
+    title: 'Crash',
+    vote_average: 6.9,
+    vote_count: 271
+}
+```
 
 ## CLI
 

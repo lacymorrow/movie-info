@@ -20,14 +20,8 @@ module.exports = function (movie, year, cb) {
 		search.cb = year;
 		year = null;
 	}
-
-	if (movie === null){
-		getConfig(search);
-	} else if (typeof movie === 'function') {
-		search.cb = movie;
-		search.movie = null;
-		getConfig(search);
-	} else if (typeof movie !== 'string') {
+	
+	if (typeof movie !== 'string') {
 		throw new Error('Expected a string');
 	} else {
 		search.year = year;
@@ -70,7 +64,7 @@ function getMovie(search) {
 		} else if (json.results.length === 0){
 			search.cb('Got error: ' + 'No results found')
 		} else {
-			search.cb(null, json.results);
+			search.cb(null, json.results[0]);
 		}
 	  });
 	}).on("error", function(e){
