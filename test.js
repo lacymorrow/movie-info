@@ -4,6 +4,6 @@ var movieInfo = require('./index');
 
 it('should return an object', function () {
 	movieInfo('crash', function (err, res) {
-	    assert.notStrictEqual(res.length, 0);
+	    assert.notEqual(res.length, 0);
 	});
 });

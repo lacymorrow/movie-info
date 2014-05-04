@@ -1,12 +1,12 @@
-# movie-art [![Build Status](https://travis-ci.org/lacymorrow/movie-art.svg?branch=master)](https://travis-ci.org/lacymorrow/movie-art)
+# movie-info [![Build Status](https://travis-ci.org/lacymorrow/movie-info.svg?branch=master)](https://travis-ci.org/lacymorrow/movie-info)
 
-> Get a movie poster image url in node: "Oceans Eleven" ➔ http://path/to/oceans_eleven_poster.jpg
+> Get information, images, rating, description, etc. about a movie.
 
 
 ## Install
 
 ```bash
-$ npm install --save movie-art
+$ npm install --save movie-info
 ```
 
 
@@ -14,28 +14,22 @@ $ npm install --save movie-art
 
 ```js
 
-var movieArt = require('movie-art');
+var movieInfo = require('movie-info');
 
-movieArt('Oceans Eleven', function (err, url) {
+movieInfo('Oceans Eleven', function (err, url) {
     console.log(url);
-    //=> http://path/to/oceans_eleven_poster.jpg
+    //=> { ... }
 });
 
-movieArt('Oceans Eleven', '1960', function (err, url) {
+movieInfo('Oceans Eleven', '1960', function (err, url) {
     console.log(url);
-    //=> http://path/to/oceans_eleven_poster_1960.jpg
+    //=> { ... }
 });
-
-movieArt('Oceans Eleven', '1960', 'w92', function (err, url) {
-    console.log(url);
-    //=> http://path/to/oceans_eleven_poster_1960_small.jpg
-});
-
 ```
 
 ## API
 
-### movieArt(movie [, year ] [, size ], callback)
+### movieInfo(movie [, year ] , callback)
 
 #### movie
 
@@ -51,18 +45,6 @@ Type: `string`
 
 Optional movie year.
 
-#### callback(err, url)
-
-
-#### size
-
-Type: `string` 
-
-Requested poster size. 
-Call `movieArt(function(e){console.log(e);});` or run the CLI command with no arguments to retrieve the list of available sizes.
-
-*possible values at time of writing:* `w92`, `w154`, `w185`, `w342`, `w500`, `w780`, `original`
-
 
 #### callback(err, url)
 
@@ -72,20 +54,20 @@ Call `movieArt(function(e){console.log(e);});` or run the CLI command with no ar
 You can also use it as a CLI app by installing it globally:
 
 ```bash
-$ npm install --global movie-art
+$ npm install --global movie-info
 ```
 
 #### Usage
 
 ```bash
-$ movie-art --help
+$ movie-info --help
 
 Usage
-  $ movie-art movie [year] [size]
+  $ movie-info movie [year]
 
 Example
-  $ movie-art 'Oceans Eleven' 1960 w92
-  http://path/to/oceans_eleven_poster_1960_small.jpg
+  $ movie-info 'Oceans Eleven' 1960
+  { ... }
 ```
 
 

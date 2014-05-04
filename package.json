@@ -1,9 +1,9 @@
 {
-  "name": "movie-art",
-  "version": "1.0.4",
-  "description": "Get a movie poster image url in node: Oceans Eleven ➔ http://path/to/oceans_eleven_poster.jpg",
+  "name": "movie-info",
+  "version": "1.0.0",
+  "description": "Get information, images, rating, description, etc. about a movie.",
   "license": "MIT",
-  "repository": "lacymorrow/movie-art",
+  "repository": "lacymorrow/movie-info",
   "bin": {
     "movie-art": "cli.js"
   },
@@ -29,6 +29,9 @@
     "movie",
     "image",
     "poster",
+    "details",
+    "info",
+    "description",
     "url",
     "uri",
     "path"
