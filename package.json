@@ -1,0 +1,39 @@
+{
+  "name": "movie-art",
+  "version": "1.0.4",
+  "description": "Get a movie poster image url in node: Oceans Eleven ➔ http://path/to/oceans_eleven_poster.jpg",
+  "license": "MIT",
+  "repository": "lacymorrow/movie-art",
+  "bin": {
+    "movie-art": "cli.js"
+  },
+  "author": {
+    "name": "Lacy Morrow",
+    "email": "me@lacymorrow.com",
+    "url": "http://lacymorrow.com"
+  },
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "files": [
+    "cli.js",
+    "index.js"
+  ],
+  "keywords": [
+    "cli",
+    "bin",
+    "app",
+    "movie",
+    "image",
+    "poster",
+    "url",
+    "uri",
+    "path"
+  ],
+  "devDependencies": {
+    "mocha": "*"
+  }
+}
