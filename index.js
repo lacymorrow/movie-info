@@ -68,6 +68,11 @@ function getMovie(search) {
 		}
 	  });
 	}).on("error", function(e){
-		search.cb('Got error: ' + e.message);
+		if(search.year !== null){
+			search.year = null;
+			getMovie(search);
+		} else {
+			search.cb('Got error: ' + e.message);
+		}
 	});
 }
