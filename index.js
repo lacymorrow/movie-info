@@ -62,17 +62,18 @@ function getMovie(search) {
 		if (typeof(json.status_message) !== 'undefined'){
 			search.cb('Got error: ' + json.status_message);
 		} else if (json.results.length === 0){
-			search.cb('Got error: ' + 'No results found')
+			// Retry failed search without year
+			if(search.year !== null){
+				search.year = null;
+				getMovie(search);
+			} else {
+				search.cb('Got error: ' + 'No results found');
+			}
 		} else {
 			search.cb(null, json.results[0]);
 		}
 	  });
 	}).on("error", function(e){
-		if(search.year !== null){
-			search.year = null;
-			getMovie(search);
-		} else {
-			search.cb('Got error: ' + e.message);
-		}
+		search.cb('Got error: ' + e.message);
 	});
 }
