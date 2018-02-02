@@ -1,4 +1,5 @@
-# movie-info [![npm version](https://badge.fury.io/js/movie-info.svg)](https://badge.fury.io/js/movie-info) [![Build Status](https://travis-ci.org/lacymorrow/movie-info.svg?branch=master)](https://travis-ci.org/lacymorrow/movie-info)
+# movie-info 
+[![npm version](https://badge.fury.io/js/movie-info.svg)](https://badge.fury.io/js/movie-info) [![Build Status](https://travis-ci.org/lacymorrow/movie-info.svg?branch=master)](https://travis-ci.org/lacymorrow/movie-info) [![license:mit](https://img.shields.io/badge/license-mit-blue.svg)](https://opensource.org/licenses/MIT)
 
 > Get information, images, rating, description, etc. about a movie.
 
