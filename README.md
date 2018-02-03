@@ -35,17 +35,28 @@ $ npm install --save movie-info
 
 ```js
 
-var movieInfo = require('movie-info');
+const movieInfo = require('movie-info')
 
-movieInfo('Oceans Eleven', function (err, res) {
-    console.log(res);
+movieInfo('Avatar', function (err, res) {
+    console.log(res)
     //=> { ... }
-});
+})
 
 movieInfo('Oceans Eleven', '1960', function (err, res) {
-    console.log(res);
+    console.log(res)
     //=> { ... }
-});
+})
+
+// as a Promise
+const info = new Promise(function(resolve, reject) {
+    movieInfo('Crash', function (err, res) {
+        if (err) {
+            reject(err)
+        }
+        resolve(res)
+    })
+})
+
 ```
 
 Returns an object in the following form:
