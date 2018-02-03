@@ -1,6 +1,6 @@
 {
   "name": "movie-info",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Get information, images, rating, description, etc. about a movie.",
   "license": "MIT",
   "repository": "lacymorrow/movie-info",
@@ -37,6 +37,6 @@
     "path"
   ],
   "devDependencies": {
-    "mocha": "*"
+    "ava": "*"
   }
 }
