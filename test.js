@@ -2,13 +2,6 @@
 import test from 'ava'
 var movieInfo = require('./index')
 
-// it('should return an object', function () {
-// 	movieInfo('crash', function (err, res) {
-// 	    assert.notEqual(res.length, 0);
-// 	});
-// });
-
-
 test('returns an object', async t => {
 	t.plan(1)
 
