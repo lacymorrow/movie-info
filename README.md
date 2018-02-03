@@ -1,16 +1,37 @@
 # movie-info [![Build Status](https://travis-ci.org/lacymorrow/movie-info.svg?branch=master)](https://travis-ci.org/lacymorrow/movie-info) [![npm version](https://badge.fury.io/js/movie-info.svg)](https://badge.fury.io/js/movie-info)
 
-> Get information, images, rating, description, etc. about a movie.
+> Fetch information, images, rating, description, etc. about a movie.
+
+[![asciicast](https://asciinema.org/a/160835.png)](https://asciinema.org/a/160835)
 
 
 ## Install
 
 ```bash
-$ npm install --save movie-info
+$ npm install -g movie-info
 ```
 
 
+#### From the command line
+
+```bash
+$ movie-info --help
+
+Usage
+  $ movie-info movie [year]
+
+Example
+  $ movie-info 'Oceans Eleven' 1960  
+  //=> { ... }
+```
+
+
+
 ## Usage
+
+```bash
+$ npm install --save movie-info
+```
 
 ```js
 
@@ -26,6 +47,24 @@ movieInfo('Oceans Eleven', '1960', function (err, res) {
     //=> { ... }
 });
 ```
+
+Returns an object in the following form:
+
+```js
+{
+    adult: false,
+    backdrop_path: '/lhkU86q5cszZkca9MVQLMvUAE6m.jpg',
+    id: 1640,
+    original_title: 'Crash',
+    release_date: '2004-09-10',
+    poster_path: '/pG8LL4LYMCr5uikhx9rewrW8352.jpg',
+    popularity: 3.30511799781063,
+    title: 'Crash',
+    vote_average: 6.9,
+    vote_count: 271
+}
+```
+
 
 ## API
 
@@ -47,43 +86,6 @@ Optional movie year.
 
 
 #### callback(err, res)
-
-Returns an object in the following form:
-
-```js
-{
-    adult: false,
-    backdrop_path: '/lhkU86q5cszZkca9MVQLMvUAE6m.jpg',
-    id: 1640,
-    original_title: 'Crash',
-    release_date: '2004-09-10',
-    poster_path: '/pG8LL4LYMCr5uikhx9rewrW8352.jpg',
-    popularity: 3.30511799781063,
-    title: 'Crash',
-    vote_average: 6.9,
-    vote_count: 271
-}
-```
-
-## CLI
-
-You can also use it as a CLI app by installing it globally:
-
-```bash
-$ npm install --global movie-info
-```
-
-#### Usage
-
-```bash
-$ movie-info --help
-
-Usage
-  $ movie-info movie [year]
-
-Example
-  $ movie-info 'Oceans Eleven' 1960  { ... }
-```
 
 
 ## Related
