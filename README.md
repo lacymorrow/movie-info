@@ -2,7 +2,7 @@
 
 > Fetch information, images, rating, description, etc. about a movie.
 
-[![asciicast](https://asciinema.org/a/160835.png)](https://asciinema.org/a/160835)
+[![movie-info](movie-info.svg)]
 
 
 ## Install
