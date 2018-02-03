@@ -82,8 +82,7 @@ Usage
   $ movie-info movie [year]
 
 Example
-  $ movie-info 'Oceans Eleven' 1960
-  { ... }
+  $ movie-info 'Oceans Eleven' 1960  { ... }
 ```
 
 
