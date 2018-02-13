@@ -1,8 +1,8 @@
+/* jshint ignore:start */
 'use strict';
 import test from 'ava';
 var movieInfo = require('./index');
 
-/* jshint ignore:start */
 test('returns an object', async t => {
 	t.plan(1);
 
