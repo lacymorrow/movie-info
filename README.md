@@ -37,29 +37,25 @@ $ npm install --save movie-info
 
 const movieInfo = require('movie-info')
 
-movieInfo('Avatar', function (err, res) {
-    console.log(res)
+movieInfo('Avatar').then(function (data) {
+    console.log(data)
     //=> { ... }
 })
 
-movieInfo('Oceans Eleven', '1960', function (err, res) {
-    console.log(res)
-    //=> { ... }
-})
-
-// as a Promise
-const info = new Promise(function(resolve, reject) {
-    movieInfo('Crash', function (err, res) {
-        if (err) {
-            reject(err)
-        }
-        resolve(res)
-    })
-})
+// year search, plus error handling
+movieInfo('Oceans Eleven', '1960').then(
+    function (data) {
+        console.log(data)
+        //=> { ... }
+    },
+    function (err) {
+        // failed
+    }
+},)
 
 ```
 
-Returns an object in the following form:
+Returns a Promise which resolves to an object in the following form:
 
 ```js
 {
