@@ -37,14 +37,12 @@ $ npm install --save movie-info
 
 const movieInfo = require('movie-info')
 
-movieInfo('Avatar').then(function (data) {
-    console.log(data)
-    //=> { ... }
-})
+var movie = movieInfo('Avatar')
 
 // year search, plus error handling
 movieInfo('Oceans Eleven', '1960').then(
     function (data) {
+        // success
         console.log(data)
         //=> { ... }
     },
@@ -55,7 +53,7 @@ movieInfo('Oceans Eleven', '1960').then(
 
 ```
 
-Returns a Promise which resolves to an object in the following form:
+##### Response
 
 ```js
 {
@@ -75,7 +73,9 @@ Returns a Promise which resolves to an object in the following form:
 
 ## API
 
-### movieInfo(movie [, year ] , callback)
+### movieInfo(movie [, year ])
+
+Returns a Promise which resolves to a movie object
 
 #### movie
 
@@ -92,7 +92,6 @@ Type: `string`
 Optional movie year.
 
 
-#### callback(err, res)
 
 
 ## Related
