@@ -1,39 +1,29 @@
-'use strict'
-import test from 'ava'
-var movieInfo = require('./index')
+"use strict";
+import test from "ava";
+var movieInfo = require("./index");
 
-test('returns an object', async t => {
-	t.plan(1)
+test("returns an object", async t => {
+	t.plan(1);
 
-	const info  = new Promise(function(resolve, reject) {
-		movieInfo('crash', function (err, res) {
-	    	resolve(res)
-		})
-	})
+	const info = await movieInfo("crash");
 
-	t.is(typeof await info, 'object')
+	t.is(typeof info, "object");
 });
 
-test('returns the movie Crash', async t => {
-	t.plan(1)
+test("returns the movie Crash", async t => {
+	t.plan(1);
 
-	const title  = new Promise(function(resolve, reject) {
-		movieInfo('crash', function (err, res) {
-	    	resolve(res.title)
-		})
-	})
+	const info = await movieInfo("crash");
 
-	t.is(await title, 'Crash')
+	t.is(info.title, "Crash");
 });
 
-test('returns the correct release date', async t => {
-	t.plan(1)
+test("returns the correct release date", async t => {
+	t.plan(1);
 
-	const year  = new Promise(function(resolve, reject) {
-		movieInfo('blade runner', '1982', function (err, res) {
-	    	resolve(res.release_date.slice(0,4))
-		})
-	})
+	const year = await movieInfo("blade runner", "1982").then(res =>
+		res.release_date.slice(0, 4)
+	);
 
-	t.is(await year, '1982')
+	t.is(year, "1982");
 });

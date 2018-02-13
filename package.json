@@ -37,6 +37,7 @@
     "path"
   ],
   "devDependencies": {
-    "ava": "*"
+    "ava": "0.25.0",
+    "jshint": "^2.9.5"
   }
 }

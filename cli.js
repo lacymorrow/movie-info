@@ -12,7 +12,7 @@ var cb = function(err, url) {
 	console.log(url);
 };
 
-function help() {
+var help = function() {
 	console.log(pkg.description);
 	console.log("");
 	console.log("Usage");
@@ -21,7 +21,7 @@ function help() {
 	console.log("Example");
 	console.log("  $ movie-info 'Oceans Eleven' 1960");
 	console.log("  { ... }");
-}
+};
 
 if (
 	process.argv.indexOf("-h") !== -1 ||
