@@ -2,7 +2,7 @@
 
 > Fetch information, images, rating, description, etc. about a movie.
 
-[![movie-info](movie-info.svg)]()
+[![movie-info](demo.svg)]()
 
 
 ## Install
