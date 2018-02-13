@@ -38,9 +38,9 @@ $ npm install --save movie-info
 
 const movieInfo = require('movie-info')
 
-var movie = movieInfo('Avatar')
+var movie = await movieInfo('Avatar')
 
-// search with year and handle errors
+// search with year, handle output
 movieInfo('Oceans Eleven', '1960').then(
     function (data) {
         // success
@@ -77,7 +77,6 @@ movieInfo('Oceans Eleven', '1960').then(
 ### movieInfo(movie [, year ])
 
 Returns a Promise which resolves to a movie object. 
-Callback version available in the `callback` branch.
 
 #### movie
 
