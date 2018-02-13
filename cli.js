@@ -4,20 +4,12 @@ var pkg = require('./package.json');
 var movieInfo = require('./index');
 var movie = process.argv[2];
 
-var cb = function(err, url) {
-	if (err) {
-		console.error(err);
-		process.exit(1);
-	}
-	console.log(url);
-};
-
 var help = function() {
 	console.log(pkg.description, '\n');
 	console.log('Usage');
 	console.log('  $ movie-info movie [year]\n');
 	console.log('Example');
-	console.log('  $ movie-info 'Oceans Eleven' 1960');
+	console.log('  $ movie-info \'Oceans Eleven\' 1960');
 	console.log('  { ... }');
 };
 

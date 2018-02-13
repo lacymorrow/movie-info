@@ -39,7 +39,7 @@ const movieInfo = require('movie-info')
 
 var movie = movieInfo('Avatar')
 
-// year search, plus error handling
+// search with year and handle errors
 movieInfo('Oceans Eleven', '1960').then(
     function (data) {
         // success
