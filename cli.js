@@ -1,7 +1,7 @@
 #!/usr/bin/env node
-"use strict";
-var pkg = require("./package.json");
-var movieInfo = require("./index");
+'use strict';
+var pkg = require('./package.json');
+var movieInfo = require('./index');
 var movie = process.argv[2];
 
 var cb = function(err, url) {
@@ -13,27 +13,25 @@ var cb = function(err, url) {
 };
 
 var help = function() {
-	console.log(pkg.description);
-	console.log("");
-	console.log("Usage");
-	console.log("  $ movie-info movie [year]");
-	console.log("");
-	console.log("Example");
-	console.log("  $ movie-info 'Oceans Eleven' 1960");
-	console.log("  { ... }");
+	console.log(pkg.description, '\n');
+	console.log('Usage');
+	console.log('  $ movie-info movie [year]\n');
+	console.log('Example');
+	console.log('  $ movie-info 'Oceans Eleven' 1960');
+	console.log('  { ... }');
 };
 
 if (
-	process.argv.indexOf("-h") !== -1 ||
-	process.argv.indexOf("--help") !== -1
+	process.argv.indexOf('-h') !== -1 ||
+	process.argv.indexOf('--help') !== -1
 ) {
 	help();
 	return;
 }
 
 if (
-	process.argv.indexOf("-v") !== -1 ||
-	process.argv.indexOf("--version") !== -1
+	process.argv.indexOf('-v') !== -1 ||
+	process.argv.indexOf('--version') !== -1
 ) {
 	console.log(pkg.version);
 	return;
