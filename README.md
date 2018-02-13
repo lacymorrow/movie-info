@@ -76,7 +76,8 @@ movieInfo('Oceans Eleven', '1960').then(
 
 ### movieInfo(movie [, year ])
 
-Returns a Promise which resolves to a movie object
+Returns a Promise which resolves to a movie object. 
+Callback version available in the `callback` branch.
 
 #### movie
 
