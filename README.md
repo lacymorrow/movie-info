@@ -1,5 +1,5 @@
 # movie-info 
-[![npm version](https://badge.fury.io/js/movie-info.svg)](https://badge.fury.io/js/movie-info) [![Build Status](https://travis-ci.org/lacymorrow/movie-info.svg?branch=master)](https://travis-ci.org/lacymorrow/movie-info) [![bitHound Code](https://www.bithound.io/github/lacymorrow/movie-info/badges/code.svg)](https://www.bithound.io/github/lacymorrow/movie-info) [![Try movie-info on RunKit](https://badge.runkitcdn.com/movie-info.svg](https://npm.runkit.com/movie-info)
+[![npm version](https://badge.fury.io/js/movie-info.svg)](https://badge.fury.io/js/movie-info) [![Build Status](https://travis-ci.org/lacymorrow/movie-info.svg?branch=master)](https://travis-ci.org/lacymorrow/movie-info) [![bitHound Code](https://www.bithound.io/github/lacymorrow/movie-info/badges/code.svg)](https://www.bithound.io/github/lacymorrow/movie-info) [![Try movie-info on RunKit](https://badge.runkitcdn.com/movie-info.svg](https://npm.runkit.com/movie-info)]
 
 > Fetch information, images, rating, description, etc. about a movie.
 
