@@ -3,7 +3,7 @@
 
 > Fetch information, images, rating, description, etc. about a movie.
 
-[![movie-info](demo.svg)]()
+[![movie-info](https://github.com/lacymorrow/movie-info/raw/master/demo.svg?sanitize=true)](https://github.com/lacymorrow/movie-info)
 
 
 ## Install
