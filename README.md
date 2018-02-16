@@ -9,7 +9,7 @@
 
 
 ## Features
- * Use anywhere, browser or Node - UMD ([CanIUse](https://caniuse.com/#feat=fetch))
+ * Use anywhere, browser or Node - UMD (_[Browser Support](https://caniuse.com/#feat=fetch)_)
  * Promise and Callback API
  * Finds:
    * Title
@@ -23,12 +23,12 @@
 ## Install
 
 ```bash
-// From the command line
+# From the command line
 $ npm install -g movie-info
 ```
 
 ```html
-// Globally in the browser (Cloudflare CDN)
+<!-- movieInfo browser global -->
 <script type="text/javascript" src="https://unpkg.com/movie-info" />
 ```
 
@@ -134,7 +134,7 @@ Type: `string`
 
 Movie release year to search for. _(optional)_
 
-#### callback (error, result)
+#### callback(error, result)
 
 type: `function`
 

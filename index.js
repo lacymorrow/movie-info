@@ -77,7 +77,7 @@
 
 		// Callback and return Promise
 		if (cb) {
-			return response.then(cb.bind(null, null), cb);
+			return response.then(cb, cb);
 		}
 
 		return response;
