@@ -1,63 +1,90 @@
 /* jshint ignore:start */
-'use strict';
-import test from 'ava';
-var movieInfo = require('./index');
+'use strict'
+import test from 'ava'
+var movieInfo = require( './index' )
 
-test('calls the callback without a year', async t => {
-	t.plan(1);
+test( 'calls the callback without a year', async t => {
 
-	const title = await new Promise((resolve, reject) => {movieInfo('crash', r => {
-			resolve(r.title)
-		});
-	});	
+	t.plan( 1 )
 
-	t.is(title, 'Crash');
-});
+	const title = await new Promise( ( resolve, reject ) => {
 
-test('calls the callback with a year', async t => {
-	t.plan(1);
+		movieInfo( 'crash', r => {
 
-	const title = await new Promise((resolve, reject) => {movieInfo('crash', '2005', r => {
-			resolve(r.title)
-		});
-	});	
-	
-	t.is(title, 'Crash');
-});
+			resolve( r.title )
 
-test('calls the callback with a numeric year', async t => {
-	t.plan(1);
+		} )
 
-	const title = await new Promise((resolve, reject) => {movieInfo('crash', 2005, r => {
-			resolve(r.title)
-		});
-	});	
-	
-	t.is(title, 'Crash');
-});
+	} )
 
-test('returns an object', async t => {
-	t.plan(1);
+	t.is( title, 'Crash' )
 
-	const info = await movieInfo('crash');
+} )
 
-	t.is(typeof info, 'object');
-});
+test( 'calls the callback with a year', async t => {
 
-test('returns the movie Crash', async t => {
-	t.plan(1);
+	t.plan( 1 )
 
-	const info = await movieInfo('crash');
+	const title = await new Promise( ( resolve, reject ) => {
 
-	t.is(info.title, 'Crash');
-});
+		movieInfo( 'crash', '2005', r => {
 
-test('returns the correct release date', async t => {
-	t.plan(1);
+			resolve( r.title )
 
-	const year = await movieInfo('blade runner', '1982').then(res =>
-		res.release_date.slice(0, 4)
-	);
+		} )
 
-	t.is(year, '1982');
-});
+	} )
+
+	t.is( title, 'Crash' )
+
+} )
+
+test( 'calls the callback with a numeric year', async t => {
+
+	t.plan( 1 )
+
+	const title = await new Promise( ( resolve, reject ) => {
+
+		movieInfo( 'crash', 2005, r => {
+
+			resolve( r.title )
+
+		} )
+
+	} )
+
+	t.is( title, 'Crash' )
+
+} )
+
+test( 'returns an object', async t => {
+
+	t.plan( 1 )
+
+	const info = await movieInfo( 'crash' )
+
+	t.is( typeof info, 'object' )
+
+} )
+
+test( 'returns the movie Crash', async t => {
+
+	t.plan( 1 )
+
+	const info = await movieInfo( 'crash' )
+
+	t.is( info.title, 'Crash' )
+
+} )
+
+test( 'returns the correct release date', async t => {
+
+	t.plan( 1 )
+
+	const year = await movieInfo( 'blade runner', '1982' ).then( res =>
+		res.release_date.slice( 0, 4 )
+	)
+
+	t.is( year, '1982' )
+
+} )
