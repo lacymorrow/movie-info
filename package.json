@@ -4,6 +4,7 @@
   "description": "Get information, images, rating, description, etc. about a movie.",
   "license": "MIT",
   "repository": "lacymorrow/movie-info",
+  "main": "index.js",
   "bin": {
     "movie-info": "cli.js"
   },
@@ -38,5 +39,9 @@
   ],
   "devDependencies": {
     "ava": "0.25.0"
+  },
+  "dependencies": {
+    "node-fetch": "^2.0.0",
+    "whatwg-fetch": "^2.0.3"
   }
 }

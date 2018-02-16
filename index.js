@@ -1,94 +1,77 @@
-'use strict';
+"use strict";
 
-var getMovie = function(search) {
-	/*jshint camelcase: false */
-	var data = '';
-	search.options.path = encodeURI(
-		'/3/search/movie?api_key=' +
-			search.key +
-			'&query=' +
-			search.movie +
-			(search.year !== null ? '&year=' + search.year : '')
-	);
-	return new Promise(function(resolve, reject) {
-		search.protocol
-			.get(search.options, function(resp) {
-				resp.on('data', function(chunk) {
-					data += chunk;
-				});
-				resp.on('end', function() {
-					var json = JSON.parse(data);
-					if (typeof json.status_message !== 'undefined') {
-						reject(new Error('JSON Error: ' + json.status_message));
-					}
-					if (json.results.length === 0) {
-						// Retry failed search without year
-						if (search.year !== null) {
-							search.year = null;
-							resolve(getMovie(search));
-						} else {
-							reject(new Error('Search Error: No results found'));
-						}
-					} else {
-						resolve(json.results[0]);
-					}
-				});
-			})
-			.on('error', function(e) {
-				reject(new Error(e));
-			});
-	});
-};
-
-var getConfiguration = function(search) {
-	/*jshint camelcase: false */
-	var data = '';
-	search.options.path = encodeURI('/3/configuration?api_key=' + search.key);
-	return new Promise(function(resolve, reject) {
-		search.protocol
-			.get(search.options, function(resp) {
-				resp.on('data', function(chunk) {
-					data += chunk;
-				});
-				resp.on('end', function() {
-					var json = JSON.parse(data);
-					if (typeof json.status_message !== 'undefined') {
-						reject(new Error('JSON Error: ' + json.status_message));
-					}
-					search.baseURL = json.images.base_url;
-					resolve(getMovie(search));
-				});
-			})
-			.on('error', function(e) {
-				reject(new Error(e));
-			});
-	});
-};
-
-var movieInfo = function(movie, year) {
-	var search = {
-		key: '9d2bff12ed955c7f1f74b83187f188ae',
-		protocol: require('https'),
-		id: null,
-		year: null,
-		size: null,
-		sizes: null,
-		movie: movie,
-		options: {
-			host: 'api.themoviedb.org',
-			port: 443,
-			path: null
-		}
-	};
-
-	if (typeof movie !== 'string') {
-		throw new Error('Expected a string');
-	} else if (typeof year !== 'string') {
-		search.year = year;
+(function(root, factory) {
+	if (typeof define === "function" && define.amd) {
+		// AMD
+		define(["fetch"], factory);
+	} else if (typeof exports === "object") {
+		// Node, CommonJS-like
+		module.exports = factory(require("node-fetch"));
+	} else {
+		// Browser globals (root is window)
+		root.movieInfo = factory(root.fetch);
 	}
-	return getConfiguration(search);
-};
+})(this, function(fetch) {
+	//    methods
+	function movieInfo(movie, year) {
+		// search parameters
+		var search = {
+			key: "9d2bff12ed955c7f1f74b83187f188ae",
+			base: "https://api.themoviedb.org",
+			year: null,
+			movie: movie
+		};
 
-if (typeof exports === 'object') {
-	module.exports = movieInfo;
-}
+		if (typeof movie !== "string") {
+			throw new Error("Expected a string");
+		} else if (typeof year !== "string") {
+			search.year = year;
+		}
+
+		var url =
+			search.base +
+			encodeURI(
+				"/3/search/movie?api_key=" +
+					search.key +
+					"&query=" +
+					search.movie +
+					(search.year !== null ? "&year=" + search.year : "")
+			);
+
+		// Promise
+		return fetch(url, {
+			method: "GET",
+			mode: "no-cors"
+		})
+			.then(
+				function(response) {
+					return response.json();
+				},
+				function(error) {
+					return Promise.reject(error.message); //=> String
+				}
+			)
+			.then(function(json) {
+				if (json && typeof json.status_message !== "undefined") {
+					return Promise.reject("JSON Error: " + json.status_message);
+				}
+				if (json && json.results && json.results.length === 0) {
+					// Retry failed search without year
+					if (search.year !== null) {
+						search.year = null;
+						return movieInfo(search.movie, null);
+					} else {
+						return Promise.reject("Search Error: No results found");
+					}
+				} else {
+					return json.results[0];
+				}
+			})
+			.catch(function(error) {
+				return error;
+			});
+	}
+
+	//    exposed public method
+	return movieInfo;
+});
