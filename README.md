@@ -55,18 +55,18 @@ $ npm install --save movie-info
 ```
 
 ```js
-
 const movieInfo = require('movie-info')
 
 // Callbacks
 movieInfo('Avatar', function (err, res){
     if (err) return err;
     console.log(res)
-    //=> { ... }
 })
 
 // Promises
-movieInfo('Avatar').then(console.log)
+movieInfo('Avatar')
+.then(console.log)
+.catch(console.log)
 
 // or, search with year and handle output
 movieInfo('Oceans Eleven', '1960').then(
@@ -79,12 +79,6 @@ movieInfo('Oceans Eleven', '1960').then(
         // failed
     }
 })
-
-// error handling
-movieInfo('Avatar').catch(error => {
-    // respond to error
-});
-
 ```
 
 ##### Response
@@ -101,7 +95,7 @@ movieInfo('Avatar').catch(error => {
     title: 'Crash',
     vote_average: 6.9,
     vote_count: 271,
-    image_base: 'http://image.tmdb.org/t/p/original'
+    imageBase: 'http://image.tmdb.org/t/p/original'
 }
 ```
 
@@ -110,6 +104,7 @@ movieInfo('Avatar').catch(error => {
 Combine the `image_base` with the desired path to create a complete image URL.
 
 ```js
+const imageUrl = movieInfo('Avatar').then(res => console.log(res.imageBase + res.poster_path))
 var imageUrl = response.image_base + response.poster_path
     //=> http://image.tmdb.org/t/p/original/pG8LL4LYMCr5uikhx9rewrW8352.jpg
 ```
