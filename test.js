@@ -1,4 +1,3 @@
-/* jshint ignore:start */
 'use strict'
 import test from 'ava'
 var movieInfo = require( './index' )

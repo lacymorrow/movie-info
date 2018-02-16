@@ -21,7 +21,8 @@
   },
   "files": [
     "cli.js",
-    "index.js"
+    "index.js",
+    "test.js"
   ],
   "keywords": [
     "cli",
