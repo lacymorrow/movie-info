@@ -5,13 +5,31 @@
 
 [![movie-info](https://github.com/lacymorrow/movie-info/raw/master/demo.svg?sanitize=true)](https://github.com/lacymorrow/movie-info)
 
-#### [Demo on RunKit](https://runkit.com/lacymorrow/movie-info) ([_Output_](https://movie-info-kdbpuifpuxt8.runkit.sh/?name=Oceans+Eleven))
+#### [Try it on RunKit](https://runkit.com/lacymorrow/movie-info) ([_Output_](https://movie-info-kdbpuifpuxt8.runkit.sh/?name=Oceans+Eleven))
+
+
+## Features
+ * Use anywhere, browser or Node - UMD ([CanIUse](https://caniuse.com/#feat=fetch))
+ * Promise and Callback API
+ * Finds:
+   * Title
+   * Release Date
+   * Poster and backdrop images
+   * IMDB rating + vote count
+   * Recent popularity rating
+   * Adult film (boolean)
 
 
 ## Install
 
 ```bash
+// From the command line
 $ npm install -g movie-info
+```
+
+```html
+// Globally in the browser (Cloudflare CDN)
+<script type="text/javascript" src="https://unpkg.com/movie-info" />
 ```
 
 
@@ -40,17 +58,21 @@ $ npm install --save movie-info
 
 const movieInfo = require('movie-info')
 
-var movie = movieInfo('Avatar', function (err, res){
+// Callbacks
+movieInfo('Avatar', function (err, res){
     if (err) return err;
     console.log(res)
     //=> { ... }
 })
 
+// Promises
+movieInfo('Avatar').then(console.log)
+
 // or, search with year and handle output
 movieInfo('Oceans Eleven', '1960').then(
-    function (data) {
+    function (res) {
         // success
-        console.log(data)
+        console.log(res)
         //=> { ... }
     },
     function (err) {
@@ -78,14 +100,24 @@ movieInfo('Avatar').catch(error => {
     popularity: 3.30511799781063,
     title: 'Crash',
     vote_average: 6.9,
-    vote_count: 271
+    vote_count: 271,
+    image_base: 'http://image.tmdb.org/t/p/original'
 }
+```
+
+##### Images
+
+Combine the `image_base` with the desired path to create a complete image URL.
+
+```js
+var imageUrl = response.image_base + response.poster_path
+    //=> http://image.tmdb.org/t/p/original/pG8LL4LYMCr5uikhx9rewrW8352.jpg
 ```
 
 
 ## API
 
-### movieInfo(movie [, year ])
+### movieInfo(movie [, year ] [, callback])
 
 Returns a Promise which resolves to a movie object. 
 
@@ -94,16 +126,19 @@ Returns a Promise which resolves to a movie object.
 *Required*  
 Type: `string`
 
-Movie to search for.
+Movie title to search for.
 
+#### year 
 
-#### year
+Type: `string`
 
-Type: `string` 
+Movie release year to search for. _(optional)_
 
-Optional movie year.
+#### callback (error, result)
 
+type: `function`
 
+Callback function. _(optional)_
 
 
 ## Related

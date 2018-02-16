@@ -17,7 +17,7 @@
 		var search = {
 			key: "9d2bff12ed955c7f1f74b83187f188ae",
 			base: "https://api.themoviedb.org",
-			image_base: "http://image.tmdb.org/t/p/original/",
+			image_base: "http://image.tmdb.org/t/p/original",
 			year: null,
 			movie: movie
 		};
@@ -75,12 +75,12 @@
 				return error;
 			});
 
-		// Callback or return Promise
+		// Callback and return Promise
 		if (cb) {
-			response.then(cb);
-		} else {
-			return response;
+			return response.then(cb.bind(null, null), cb);
 		}
+
+		return response;
 	}
 
 	// exposed public method
