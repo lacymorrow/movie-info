@@ -14,6 +14,7 @@
  * Finds:
    * Title
    * Release Date
+   * Plot summary overview
    * Poster and backdrop images
    * IMDB rating + vote count
    * Recent popularity rating
@@ -22,30 +23,19 @@
 
 ## Install
 
+Use with your favorite module loader or package manager. In the browser:
+
+```html
+<!-- movieInfo window global -->
+<script type="text/javascript" src="https://unpkg.com/movie-info" />
+```
+
+Using [NPM](https://npmjs.com):
+
 ```bash
 # From the command line
 $ npm install -g movie-info
 ```
-
-```html
-<!-- movieInfo browser global -->
-<script type="text/javascript" src="https://unpkg.com/movie-info" />
-```
-
-
-#### From the command line
-
-```bash
-$ movie-info --help
-
-Usage
-  $ movie-info movie [year]
-
-Example
-  $ movie-info 'Oceans Eleven' 1960  
-  //=> { ... }
-```
-
 
 
 ## Usage
@@ -81,7 +71,22 @@ movieInfo('Oceans Eleven', '1960').then(
 })
 ```
 
+#### From the command line
+
+```bash
+$ movie-info --help
+
+Usage
+  $ movie-info movie [year]
+
+Example
+  $ movie-info 'Oceans Eleven' 1960  
+  //=> { ... }
+```
+
 ##### Response
+
+Example output:
 
 ```js
 {

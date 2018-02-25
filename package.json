@@ -5,6 +5,7 @@
   "license": "MIT",
   "repository": "lacymorrow/movie-info",
   "main": "index.js",
+  "browser": "index.js",
   "bin": {
     "movie-info": "cli.js"
   },
@@ -21,8 +22,7 @@
   },
   "files": [
     "cli.js",
-    "index.js",
-    "test.js"
+    "index.js"
   ],
   "keywords": [
     "cli",
@@ -43,5 +43,8 @@
   },
   "dependencies": {
     "node-fetch": "^2.0.0"
+  },
+  "xo": {
+    "esnext": true
   }
 }
