@@ -1,6 +1,6 @@
 'use strict'
 import test from 'ava'
-var movieInfo = require( './index' )
+import movieInfo from './index'
 
 test.cb( 'calls the callback without a year', t => {
 
