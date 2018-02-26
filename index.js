@@ -112,7 +112,7 @@
 		// Callback and return Promise
 		if ( cb ) {
 
-			return response.then( cb, cb )
+			return response.then( res => cb( null, res ), err => cb( err, null ) )
 
 		}
 

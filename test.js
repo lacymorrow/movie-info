@@ -16,7 +16,7 @@ test( 'calls the callback without a year', async t => {
 
 	} )
 
-	t.is( title, 'Crash' )
+	t.is( title, 'Crash', 'returns a matching title' )
 
 } )
 
@@ -52,7 +52,7 @@ test( 'calls the callback with a numeric year', async t => {
 
 	} )
 
-	t.is( title, 'Crash' )
+	t.is( title, 'Crash', 'returns a matching title' )
 
 } )
 
@@ -62,7 +62,7 @@ test( 'returns an object', async t => {
 
 	const info = await movieInfo( 'crash' )
 
-	t.is( typeof info, 'object' )
+	t.is( typeof info, 'object', 'returns an object' )
 
 } )
 
@@ -72,7 +72,7 @@ test( 'returns the movie Crash', async t => {
 
 	const info = await movieInfo( 'crash' )
 
-	t.is( info.title, 'Crash' )
+	t.is( info.title, 'Crash', 'returns a matching title' )
 
 } )
 
@@ -84,6 +84,6 @@ test( 'returns the correct release date', async t => {
 		res.release_date.slice( 0, 4 )
 	)
 
-	t.is( year, '1982' )
+	t.is( year, '1982', 'returns a matching year' )
 
 } )
