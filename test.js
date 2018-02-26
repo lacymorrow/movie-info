@@ -2,57 +2,45 @@
 import test from 'ava'
 var movieInfo = require( './index' )
 
-test( 'calls the callback without a year', async t => {
+test.cb( 'calls the callback without a year', t => {
 
 	t.plan( 1 )
 
-	const title = await new Promise( ( resolve, reject ) => {
+	movieInfo( 'crash', ( err, res ) => {
 
-		movieInfo( 'crash', r => {
-
-			resolve( r.title )
-
-		} )
+		err && t.end( err )
+		t.is( res.title, 'Crash', 'returns a matching title' )
+		t.end()
 
 	} )
-
-	t.is( title, 'Crash', 'returns a matching title' )
 
 } )
 
-test( 'calls the callback with a year', async t => {
+test.cb( 'calls the callback with a year', t => {
 
 	t.plan( 1 )
 
-	const title = await new Promise( ( resolve, reject ) => {
+	movieInfo( 'crash', '2005', ( err, res ) => {
 
-		movieInfo( 'crash', '2005', r => {
-
-			resolve( r.title )
-
-		} )
+		err && t.end( err )
+		t.is( res.title, 'Crash' )
+		t.end()
 
 	} )
-
-	t.is( title, 'Crash' )
 
 } )
 
-test( 'calls the callback with a numeric year', async t => {
+test.cb( 'calls the callback with a numeric year', t => {
 
 	t.plan( 1 )
 
-	const title = await new Promise( ( resolve, reject ) => {
+	movieInfo( 'crash', 2005, ( err, res ) => {
 
-		movieInfo( 'crash', 2005, r => {
-
-			resolve( r.title )
-
-		} )
+		err && t.end( err )
+		t.is( res.title, 'Crash', 'returns a matching title' )
+		t.end()
 
 	} )
-
-	t.is( title, 'Crash', 'returns a matching title' )
 
 } )
 
