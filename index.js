@@ -23,8 +23,9 @@
 
 	function movieInfo ( movie, year, cb ) {
 
-		// search parameters
+		// Search parameters
 		var search = {
+			// TMDB key (public on purpose)
 			key: '9d2bff12ed955c7f1f74b83187f188ae',
 			base: 'https://api.themoviedb.org',
 			imageBase: 'http://image.tmdb.org/t/p/original',
@@ -45,6 +46,7 @@
 			search.year = year
 
 		}
+		if ( typeof cb !== 'function' ) cb = null
 
 		var url =
 			search.base +
@@ -85,7 +87,7 @@
 					if ( search.year !== null ) {
 
 						search.year = null
-						return movieInfo( search.movie, null )
+						return movieInfo( search.movie, null, cb )
 
 					} else {
 
@@ -103,19 +105,16 @@
 				}
 
 			} )
-			.catch( function ( error ) {
+			.catch( error => error )
 
-				return error
-
-			} )
-
-		// Callback and return Promise
+		// Callback
 		if ( cb ) {
 
 			return response.then( res => cb( null, res ), err => cb( err, null ) )
 
 		}
 
+		// Promise
 		return response
 
 	}
