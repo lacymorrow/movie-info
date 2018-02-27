@@ -20,7 +20,6 @@ Use with your favorite module loader or package manager. In the browser:
 Using [NPM](https://npmjs.com):
 
 ```bash
-# From the command line
 $ npm install -g movie-info
 ```
 
@@ -40,15 +39,10 @@ $ npm install -g movie-info
 
 ## Usage
 
-```bash
-$ npm install --save movie-info
-```
-
 ```js
 const movieInfo = require('movie-info')
 
-movieInfo('Avatar')
-  .then(console.log)
+movieInfo('Avatar').then(console.log)
 ```
 
 ###### Callbacks
