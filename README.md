@@ -5,7 +5,7 @@
 
 [![movie-info](https://github.com/lacymorrow/movie-info/raw/master/demo.svg?sanitize=true)](https://github.com/lacymorrow/movie-info)
 
-#### [Try it on RunKit](https://runkit.com/lacymorrow/movie-info) _([Output](https://movie-info-kdbpuifpuxt8.runkit.sh/?name=Oceans+Eleven))_
+#### [Try it on RunKit](https://runkit.com/lacymorrow/movie-info) _([Output](https://runkit.io/lacymorrow/movie-art/branches/master?name=Oceans+Eleven))_
 
 
 ## Install
