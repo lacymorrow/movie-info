@@ -5,20 +5,7 @@
 
 [![movie-info](https://github.com/lacymorrow/movie-info/raw/master/demo.svg?sanitize=true)](https://github.com/lacymorrow/movie-info)
 
-#### [Try it on RunKit](https://runkit.com/lacymorrow/movie-info) ([_Output_](https://movie-info-kdbpuifpuxt8.runkit.sh/?name=Oceans+Eleven))
-
-
-## Features
- * Use anywhere, browser or Node - UMD (_[Browser Support](https://caniuse.com/#feat=fetch)_)
- * Promise and Callback API
- * Finds:
-   * Title
-   * Release Date
-   * Plot summary overview
-   * Poster and backdrop images
-   * IMDB rating + vote count
-   * Recent popularity rating
-   * Adult film (boolean)
+#### [Try it on RunKit](https://runkit.com/lacymorrow/movie-info) _([Output](https://movie-info-kdbpuifpuxt8.runkit.sh/?name=Oceans+Eleven))_
 
 
 ## Install
@@ -38,6 +25,19 @@ $ npm install -g movie-info
 ```
 
 
+## Features
+ * Use anywhere, browser or Node - UMD _([Browser Support](https://caniuse.com/#feat=fetch))_
+ * Promise and Callback API
+ * Includes:
+   * Title
+   * Release Date
+   * Plot summary overview
+   * Poster and backdrop images
+   * IMDB rating + vote count
+   * Recent popularity rating
+   * Adult film (boolean)
+
+
 ## Usage
 
 ```bash
@@ -47,18 +47,19 @@ $ npm install --save movie-info
 ```js
 const movieInfo = require('movie-info')
 
-// Callbacks
+movieInfo('Avatar')
+  .then(console.log)
+```
+
+###### Callbacks
+```js
 movieInfo('Avatar', function (err, res){
-    if (err) return err;
     console.log(res)
 })
+```
 
-// Promises
-movieInfo('Avatar')
-.then(console.log)
-.catch(console.log)
-
-// or, search with year and handle output
+###### Error handling
+```js
 movieInfo('Oceans Eleven', '1960').then(
     function (res) {
         // success
