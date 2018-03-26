@@ -8,22 +8,6 @@
 #### [Try it on RunKit](https://runkit.com/lacymorrow/movie-info) _([Output](https://runkit.io/lacymorrow/movie-art/branches/master?name=Oceans+Eleven))_
 
 
-## Install
-
-Use with your favorite module loader or package manager. In the browser:
-
-```html
-<!-- movieInfo window global -->
-<script type="text/javascript" src="https://unpkg.com/movie-info" />
-```
-
-Using [NPM](https://npmjs.com):
-
-```bash
-$ npm install -g movie-info
-```
-
-
 ## Features
  * Use anywhere, browser or Node - UMD _([Browser Support](https://caniuse.com/#feat=fetch))_
  * Promise and Callback API
@@ -37,6 +21,23 @@ $ npm install -g movie-info
    * Adult film (boolean)
 
 
+## Install
+
+Using [NPM](https://npmjs.com):
+
+```bash
+$ npm install -g movie-info
+```
+
+In the browser:
+
+```html
+<!-- movieInfo window global -->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/movie-info/index.min.js"></script>
+```
+(via JSDelivr, or via [Unpkg](https://unpkg.com/movie-info))
+
+
 ## Usage
 
 ```js
@@ -47,20 +48,20 @@ movieInfo('Avatar').then(console.log)
 
 ###### Callbacks
 ```js
-movieInfo('Avatar', function (err, res){
-    console.log(res)
+movieInfo('Avatar', function (error, response){
+    console.log(response)
 })
 ```
 
 ###### Error handling
 ```js
 movieInfo('Oceans Eleven', '1960').then(
-    function (res) {
+    function (response) {
         // success
-        console.log(res)
+        console.log(response)
         //=> { ... }
     },
-    function (err) {
+    function (error) {
         // failed
     }
 })
@@ -104,7 +105,11 @@ Example output:
 Combine the `image_base` with the desired path to create a complete image URL.
 
 ```js
-const imageUrl = movieInfo('Avatar').then(res => console.log(res.imageBase + res.poster_path))
+const imageUrl = movieInfo('Avatar')
+  .then(response => console.log(response.imageBase + response.poster_path))
+
+/* OR */
+
 var imageUrl = response.image_base + response.poster_path
     //=> http://image.tmdb.org/t/p/original/pG8LL4LYMCr5uikhx9rewrW8352.jpg
 ```
