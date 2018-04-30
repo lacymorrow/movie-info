@@ -53,7 +53,7 @@ movieInfo('Avatar', function (error, response){
 })
 ```
 
-###### Error handling
+###### Search year + Error handling
 ```js
 movieInfo('Oceans Eleven', '1960').then(
     function (response) {
@@ -76,7 +76,7 @@ Usage
   $ movie-info movie [year]
 
 Example
-  $ movie-info 'Oceans Eleven' 1960  
+  $ movie-info 'Oceans Eleven' '1960'
   //=> { ... }
 ```
 
@@ -123,7 +123,8 @@ Returns a Promise which resolves to a movie object.
 
 #### movie
 
-*Required*  
+*Required* 
+
 Type: `string`
 
 Movie title to search for.
@@ -136,7 +137,7 @@ Movie release year to search for. _(optional)_
 
 #### callback(error, result)
 
-type: `function`
+Type: `function`
 
 Callback function. _(optional)_
 
