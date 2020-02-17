@@ -3,16 +3,18 @@
 ( function ( root, cx ) {
 
 	if ( typeof define === 'function' && define.amd ) {
-
+		console.log('A')
 		// AMD
 		define( ['fetch'], cx )
 
 	} else if ( typeof exports === 'object' ) {
+		console.log('B')
 
 		// Node, CommonJS-like
 		module.exports = cx( require( 'node-fetch' ) )
 
 	} else {
+		console.log('C')
 
 		// Browser globals (root is window)
 		root.movieInfo = cx( root.fetch )
