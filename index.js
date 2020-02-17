@@ -6,7 +6,7 @@
 	if ( typeof define === 'function' && define.amd ) {
 		console.log('A')
 		// AMD
-		define( [fetch], cx )
+		define( ['movieInfo'], cx(fetch) )
 
 	} else if ( typeof exports === 'object' ) {
 		console.log('B')
