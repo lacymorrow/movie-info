@@ -1,17 +1,18 @@
 'use strict';
 
 ( function ( root, cx ) {
+	const fetch = require('isomorphic-fetch')
 
 	if ( typeof define === 'function' && define.amd ) {
 		console.log('A')
 		// AMD
-		define( ['fetch'], cx )
+		define( [fetch], cx )
 
 	} else if ( typeof exports === 'object' ) {
 		console.log('B')
 
 		// Node, CommonJS-like
-		module.exports = cx( require( 'node-fetch' ) )
+		module.exports = cx( fetch )
 
 	} else {
 		console.log('C')
