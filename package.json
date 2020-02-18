@@ -1,6 +1,6 @@
 {
   "name": "movie-info",
-  "version": "2.0.4",
+  "version": "2.0.5",
   "description": "Get information, images, rating, description, etc. about a movie.",
   "license": "MIT",
   "repository": "lacymorrow/movie-info",
@@ -18,7 +18,7 @@
     "node": ">=0.10.0"
   },
   "scripts": {
-    "test": "ava"
+    "test": "ava --verbose"
   },
   "files": [
     "cli.js",

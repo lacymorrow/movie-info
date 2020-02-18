@@ -1,21 +1,18 @@
 'use strict';
 
 ( function ( root, cx ) {
-	const fetch = require('isomorphic-fetch')
 
 	if ( typeof define === 'function' && define.amd ) {
-		console.log('A')
+
 		// AMD
-		define( ['movieInfo'], cx(fetch) )
+		define( ['isomorphic-fetch'], cx )
 
 	} else if ( typeof exports === 'object' ) {
-		console.log('B')
 
 		// Node, CommonJS-like
-		module.exports = cx( fetch )
+		module.exports = cx( require( 'isomorphic-fetch' ) )
 
 	} else {
-		console.log('C')
 
 		// Browser globals (root is window)
 		root.movieInfo = cx( root.fetch )
