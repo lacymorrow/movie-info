@@ -35,7 +35,7 @@ In the browser:
 <!-- movieInfo window global -->
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/movie-info/index.min.js"></script>
 ```
-(via JSDelivr, or via [Unpkg](https://unpkg.com/movie-info))
+(via [JSDelivr](https://cdn.jsdelivr.net/npm/movie-info/index.min.js), or via [Unpkg](https://unpkg.com/movie-info))
 
 
 ## Usage
