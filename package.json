@@ -6,13 +6,24 @@
   "repository": "lacymorrow/movie-info",
   "main": "index.js",
   "browser": "index.js",
-  "bin": {
-    "movie-info": "cli.js"
-  },
   "author": {
     "name": "Lacy Morrow",
     "email": "me@lacymorrow.com",
     "url": "http://lacymorrow.com"
+  },
+  "funding": [
+    {
+      "type": "patreon",
+      "url": "https://patreon.com/lacymorrow"
+    },
+    {
+      "type": "individual",
+      "url": "http://lacymorrow.com/donate"
+    },
+    "https://www.buymeacoffee.com/lm"
+  ],
+  "bin": {
+    "movie-info": "cli.js"
   },
   "engines": {
     "node": ">=0.10.0"
@@ -39,11 +50,11 @@
     "path"
   ],
   "devDependencies": {
-    "ava": "0.25.0",
+    "ava": "^5.1.0",
     "eslint": "^4.18.1"
   },
   "dependencies": {
-    "isomorphic-fetch": "^2.2.1"
+    "isomorphic-fetch": "^3.0.0"
   },
   "xo": {
     "esnext": true

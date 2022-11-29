@@ -1,44 +1,38 @@
 'use strict'
-import test from 'ava'
-import movieInfo from './index'
+const test = require( 'ava' )
+const movieInfo = require( './index' )
 
-test.cb( 'calls the callback without a year', t => {
+test( 'calls the callback without a year', async t => {
 
 	t.plan( 1 )
 
-	movieInfo( 'crash', ( err, res ) => {
+	await movieInfo( 'crash', ( _err, res ) => {
 
-		err && t.end( err )
 		t.is( res.title, 'Crash', 'returns a matching title' )
-		t.end()
 
 	} )
 
 } )
 
-test.cb( 'calls the callback with a year', t => {
+test( 'calls the callback with a year', async t => {
 
 	t.plan( 1 )
 
-	movieInfo( 'crash', '2005', ( err, res ) => {
+	await movieInfo( 'crash', '2005', ( _err, res ) => {
 
-		err && t.end( err )
 		t.is( res.title, 'Crash' )
-		t.end()
 
 	} )
 
 } )
 
-test.cb( 'calls the callback with a numeric year', t => {
+test( 'calls the callback with a numeric year', async t => {
 
 	t.plan( 1 )
 
-	movieInfo( 'crash', 2005, ( err, res ) => {
+	await movieInfo( 'crash', 2005, ( _err, res ) => {
 
-		err && t.end( err )
 		t.is( res.title, 'Crash', 'returns a matching title' )
-		t.end()
 
 	} )
 
