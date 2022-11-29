@@ -10,6 +10,7 @@
 
 ## Features
  * Use anywhere, browser or Node - UMD _([Browser Support](https://caniuse.com/#feat=fetch))_
+ * Works in React + NextJS client/server (uses [isomorphic-fetch](https://www.npmjs.com/package/isomorphic-fetch))
  * Promise and Callback API
  * Includes:
    * Title
@@ -26,7 +27,7 @@
 Using [NPM](https://npmjs.com):
 
 ```bash
-$ npm install -g movie-info
+$ npm install movie-info
 ```
 
 In the browser:
@@ -70,6 +71,7 @@ movieInfo('Oceans Eleven', '1960').then(
 #### From the command line
 
 ```bash
+$ npm install -g movie-info
 $ movie-info --help
 
 Usage
