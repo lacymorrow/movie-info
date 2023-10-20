@@ -1,5 +1,5 @@
 # movie-info [<img src="https://github.com/lacymorrow/crossover/raw/master/src/static/meta/patreon-button.webp" style="height:40px;" height="40" align="right" />](https://www.patreon.com/bePatron?u=55065733)
-[![npm version](https://badge.fury.io/js/movie-info.svg)](https://badge.fury.io/js/movie-info) [![Try movie-info on RunKit](https://badge.runkitcdn.com/movie-info.svg)](https://npm.runkit.com/movie-info)
+[![npm version](https://badge.fury.io/js/movie-info.svg)](https://badge.fury.io/js/movie-info) [![Try movie-info on RunKit](https://badge.runkitcdn.com/movie-info.svg)](https://npm.runkit.com/movie-info) [![Maintainability](https://api.codeclimate.com/v1/badges/3cc4704c1dfe38a0020e/maintainability)](https://codeclimate.com/github/lacymorrow/movie-info/maintainability)
 
 > Fetch information, images, rating, description, etc. about a movie.
 
