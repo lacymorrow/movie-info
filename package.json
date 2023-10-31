@@ -1,6 +1,6 @@
 {
   "name": "movie-info",
-  "version": "3.0.1",
+  "version": "3.0.2",
   "description": "Get information, images, rating, description, etc. about a movie.",
   "license": "MIT",
   "repository": "lacymorrow/movie-info",
