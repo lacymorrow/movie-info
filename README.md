@@ -1,161 +1,148 @@
-> [!IMPORTANT]  
-> This library is considered **feature-complete** and will only receive updates for bug fixes. You may still create an issue if you have a feature request.
+<div align="center">
+  <a href="https://github.com/lacymorrow/movie-info">
+    <img src=".github/assets/logo-horizontal.svg" alt="movie-info" width="320">
+  </a>
 
-# movie-info [<img src="https://github.com/lacymorrow/crossover/raw/master/src/static/meta/patreon-button.webp" style="height:40px;" height="40" align="right" />](https://www.patreon.com/bePatron?u=55065733)
-[![npm version](https://badge.fury.io/js/movie-info.svg)](https://badge.fury.io/js/movie-info) [![Maintainability](https://api.codeclimate.com/v1/badges/3cc4704c1dfe38a0020e/maintainability)](https://codeclimate.com/github/lacymorrow/movie-info/maintainability) [![Try movie-info on RunKit](https://badge.runkitcdn.com/movie-info.svg)](https://npm.runkit.com/movie-info)
+  <p><strong>Fetch info, images, ratings, and metadata for any movie</strong> ➔ "Avatar" → <code>{ title, poster_path, vote_average, ... }</code></p>
 
-> Fetch information, images, rating, description, etc. about a movie.
+  <p>
+    <a href="https://www.npmjs.com/package/movie-info"><img alt="npm version" src="https://img.shields.io/npm/v/movie-info?style=flat"></a>
+    <a href="https://www.npmjs.com/package/movie-info"><img alt="npm downloads" src="https://img.shields.io/npm/dm/movie-info?style=flat"></a>
+    <a href="https://github.com/lacymorrow/movie-info/actions/workflows/ci.yml"><img alt="CI" src="https://img.shields.io/github/actions/workflow/status/lacymorrow/movie-info/ci.yml?style=flat&label=CI"></a>
+    <a href="./LICENSE"><img alt="License" src="https://img.shields.io/npm/l/movie-info?style=flat"></a>
+    <a href="https://npm.runkit.com/movie-info"><img alt="Try on RunKit" src="https://img.shields.io/badge/Try-RunKit-f55fa6?style=flat"></a>
+  </p>
 
-[![movie-info](https://github.com/lacymorrow/movie-info/raw/master/demo.svg?sanitize=true)](https://github.com/lacymorrow/movie-info)
+  <img src="./demo.svg?sanitize=true" alt="movie-info demo" width="700">
+</div>
 
-#### [Try it on RunKit](https://runkit.com/lacymorrow/movie-info) _([Output](https://runkit.io/lacymorrow/movie-info/branches/master?name=Oceans+Eleven))_
+---
 
+> [!IMPORTANT]
+> This library is **feature-complete** and only receives bug-fix updates. Feature requests still welcome — please open an issue.
 
 ## Features
- * Use anywhere, browser or Node - UMD _([Browser Support](https://caniuse.com/#feat=fetch))_
- * Works in React + NextJS client/server (uses [isomorphic-fetch](https://www.npmjs.com/package/isomorphic-fetch))
- * Promise and Callback API
- * Includes:
-   * Title
-   * Release Date
-   * Plot summary overview
-   * Poster and backdrop images
-   * IMDB rating + vote count
-   * Recent popularity rating
-   * Adult film (boolean)
 
+- Use anywhere — browser or Node, UMD bundle ([browser support](https://caniuse.com/#feat=fetch))
+- Works in React + Next.js, client and server, via [isomorphic-fetch](https://www.npmjs.com/package/isomorphic-fetch)
+- Promise **and** callback API
+- Returns title, release date, plot summary, poster + backdrop paths, ratings, vote count, popularity, and more
+- Powered by TMDB
 
 ## Install
 
-Using [NPM](https://npmjs.com):
-
 ```bash
-$ npm install movie-info
+npm install movie-info
 ```
 
 In the browser:
 
 ```html
-<!-- movieInfo window global -->
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/movie-info/index.min.js"></script>
+<!-- movieInfo as a window global -->
+<script src="https://cdn.jsdelivr.net/npm/movie-info/index.min.js"></script>
 ```
-(via [JSDelivr](https://cdn.jsdelivr.net/npm/movie-info/index.min.js), or via [Unpkg](https://unpkg.com/movie-info))
 
+Also available via [Unpkg](https://unpkg.com/movie-info).
 
 ## Usage
 
 ```js
-const movieInfo = require('movie-info')
+const movieInfo = require("movie-info");
 
-movieInfo('Avatar').then(console.log)
+movieInfo("Avatar").then(console.log);
+//=> { title: "Avatar", release_date: "2009-12-15", poster_path: "/...", ... }
 ```
 
-###### Callbacks
+### Callback form
+
 ```js
-movieInfo('Avatar', function (error, response){
-    console.log(response)
-})
+movieInfo("Avatar", (error, response) => {
+  console.log(response);
+});
 ```
 
-###### Search year + Error handling
+### Year disambiguation + error handling
+
 ```js
-movieInfo('Oceans Eleven', '1960').then(
-    function (response) {
-        // success
-        console.log(response)
-        //=> { ... }
-    },
-    function (error) {
-        // failed
-    }
-})
+movieInfo("Oceans Eleven", "1960").then(
+  response => console.log(response),
+  error    => console.error("not found:", error),
+);
 ```
 
-#### From the command line
+> [!TIP]
+> Try it live — [open in RunKit](https://runkit.com/lacymorrow/movie-info) (here's an [example output](https://runkit.io/lacymorrow/movie-info/branches/master?name=Oceans+Eleven)).
 
-```bash
-$ npm install -g movie-info
-$ movie-info --help
-
-Usage
-  $ movie-info movie [year]
-
-Example
-  $ movie-info 'Oceans Eleven' '1960'
-  //=> { ... }
-```
-
-##### Response
-
-Example output:
+### Response shape
 
 ```js
 {
-    adult: false,
-    backdrop_path: '/lhkU86q5cszZkca9MVQLMvUAE6m.jpg',
-    id: 1640,
-    original_title: 'Crash',
-    release_date: '2004-09-10',
-    poster_path: '/pG8LL4LYMCr5uikhx9rewrW8352.jpg',
-    popularity: 3.30511799781063,
-    title: 'Crash',
-    vote_average: 6.9,
-    vote_count: 271,
-    imageBase: 'http://image.tmdb.org/t/p/original'
+  adult: false,
+  backdrop_path: "/lhkU86q5cszZkca9MVQLMvUAE6m.jpg",
+  id: 1640,
+  original_title: "Crash",
+  release_date: "2004-09-10",
+  poster_path: "/pG8LL4LYMCr5uikhx9rewrW8352.jpg",
+  popularity: 3.30511799781063,
+  title: "Crash",
+  vote_average: 6.9,
+  vote_count: 271,
+  imageBase: "http://image.tmdb.org/t/p/original"
 }
 ```
 
-##### Images
+### Building image URLs
 
-Combine the `image_base` with the desired path to create a complete image URL.
+Combine `imageBase` with any returned `*_path` field:
 
 ```js
-const imageUrl = movieInfo('Avatar')
-  .then(response => console.log(response.imageBase + response.poster_path))
-
-/* OR */
-
-var imageUrl = response.image_base + response.poster_path
-    //=> http://image.tmdb.org/t/p/original/pG8LL4LYMCr5uikhx9rewrW8352.jpg
+const { imageBase, poster_path } = await movieInfo("Avatar");
+const url = imageBase + poster_path;
+//=> http://image.tmdb.org/t/p/original/pG8LL4LYMCr5uikhx9rewrW8352.jpg
 ```
-
 
 ## API
 
-### movieInfo(movie [, year ] [, callback])
+### `movieInfo(movie [, year ] [, callback])`
 
-Returns a Promise which resolves to a movie object. 
+Returns a Promise that resolves to a movie object.
 
-#### movie
+| Argument | Type | Required | Description |
+|---|---|:---:|---|
+| `movie` | `string` | ✅ | Movie title to search for |
+| `year` | `string` | | Optional release-year disambiguator |
+| `callback` | `(err, result) => void` | | Optional Node-style callback |
 
-*Required* 
+## CLI
 
-Type: `string`
+```bash
+npm install --global movie-info
 
-Movie title to search for.
-
-#### year 
-
-Type: `string`
-
-Movie release year to search for. _(optional)_
-
-#### callback(error, result)
-
-Type: `function`
-
-Callback function. _(optional)_
-
+movie-info --help
+#  Usage
+#    $ movie-info movie [year]
+#
+#  Example
+#    $ movie-info 'Oceans Eleven' '1960'
+#    => { ... }
+```
 
 ## Related
 
-* [album-art](https://github.com/lacymorrow/album-art)
-* [movie-art](https://github.com/lacymorrow/movie-art)
-* [movie-trailer](https://github.com/lacymorrow/movie-trailer)
+Part of a small family of media-data utilities:
 
+- [album-art](https://github.com/lacymorrow/album-art) — Fetch album and artist cover art.
+- [movie-art](https://github.com/lacymorrow/movie-art) — Get the poster art for a movie.
+- [movie-trailer](https://github.com/lacymorrow/movie-trailer) — Find the trailer for a movie.
+
+## Acknowledgments
+
+- [TMDB](https://www.themoviedb.org) — movie data (subject to the [TMDB Terms of Service](https://www.themoviedb.org/documentation/api/terms-of-use)).
 
 ## License
 
-This package uses data from TMDB. You may consult [TMDB terms of service](https://www.themoviedb.org/documentation/api/terms-of-use) for usage rights.
+[MIT](./LICENSE) © [Lacy Morrow](https://lacymorrow.com)
 
-[MIT](http://opensource.org/licenses/MIT) © [Lacy Morrow](http://lacymorrow.com)
+<div align="center">
+  <sub>If movie-info saved you time, consider <a href="https://github.com/sponsors/lacymorrow">sponsoring on GitHub</a>, <a href="https://patreon.com/lacymorrow">supporting on Patreon</a>, or <a href="https://buymeacoffee.com/lm">buying a coffee</a>.</sub>
+</div>

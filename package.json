@@ -32,6 +32,8 @@
     "release": "np",
     "test": "ava --verbose"
   },
+  "homepage": "https://github.com/lacymorrow/movie-info#readme",
+  "bugs": "https://github.com/lacymorrow/movie-info/issues",
   "files": [
     "cli.js",
     "index.js"
