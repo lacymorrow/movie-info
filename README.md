@@ -3,7 +3,9 @@
     <img src="https://raw.githubusercontent.com/lacymorrow/movie-info/master/.github/assets/logo-horizontal.svg" alt="movie-info" width="320">
   </a>
 
-  <p><strong>Fetch info, images, ratings, and metadata for any movie</strong> ➔ "Avatar" → <code>{ title, poster_path, vote_average, ... }</code></p>
+  <p><strong>Fetch info, images, ratings, and metadata for any movie</strong></p>
+
+  > ➔ "Avatar" → <code>{ title, poster_path, vote_average, ... }</code>
 
   <p>
     <a href="https://www.npmjs.com/package/movie-info"><img alt="npm version" src="https://img.shields.io/npm/v/movie-info?style=flat"></a>
