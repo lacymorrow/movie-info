@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="none">
+  <title>movie-info</title>
+  <!-- Rounded square — indigo (movie data/info) -->
+  <rect x="16" y="16" width="224" height="224" rx="48" fill="#4f46e5"/>
+  <!-- Stylized info "i": dot on top, vertical bar -->
+  <g fill="#ffffff">
+    <circle cx="128" cy="80" r="16"/>
+    <rect x="112" y="108" width="32" height="84" rx="8"/>
+  </g>
+</svg>

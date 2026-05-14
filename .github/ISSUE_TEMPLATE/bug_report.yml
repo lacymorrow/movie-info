@@ -1,0 +1,43 @@
+name: Bug report
+description: movie-info returned the wrong data, an error, or nothing
+labels: ["bug"]
+body:
+  - type: input
+    id: version
+    attributes:
+      label: movie-info version
+      placeholder: "3.0.2"
+    validations:
+      required: true
+
+  - type: input
+    id: query
+    attributes:
+      label: Movie (and year, if applicable) you queried
+      placeholder: "Oceans Eleven — 1960"
+    validations:
+      required: true
+
+  - type: input
+    id: env
+    attributes:
+      label: Where you ran it
+      description: Node version, browser, framework
+      placeholder: "Node 20, Next.js 14 server"
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: What did you expect?
+    validations:
+      required: true
+
+  - type: textarea
+    id: actual
+    attributes:
+      label: What actually happened?
+      render: shell
+    validations:
+      required: true

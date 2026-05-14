@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 780 200" fill="none">
+  <title>movie-info</title>
+  <g transform="translate(20, 20)">
+    <rect x="0" y="0" width="160" height="160" rx="34" fill="#4f46e5"/>
+    <g fill="#ffffff">
+      <circle cx="80" cy="50" r="10"/>
+      <rect x="70" y="68" width="20" height="52" rx="5"/>
+    </g>
+  </g>
+  <text
+    x="210"
+    y="132"
+    font-family="ui-sans-serif, system-ui, -apple-system, 'Inter', 'Segoe UI', Roboto, sans-serif"
+    font-size="120"
+    font-weight="800"
+    letter-spacing="-6"
+    fill="#1a0b1f"
+  >movie-info</text>
+</svg>
