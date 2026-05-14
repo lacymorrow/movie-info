@@ -28,7 +28,7 @@
 			// TMDB key (public on purpose)
 			key: '9d2bff12ed955c7f1f74b83187f188ae',
 			base: 'https://api.themoviedb.org',
-			imageBase: 'http://image.tmdb.org/t/p/original',
+			imageBase: 'https://image.tmdb.org/t/p/original',
 			year: null,
 			movie: movie
 		}

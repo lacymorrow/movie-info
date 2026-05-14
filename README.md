@@ -1,6 +1,6 @@
 <div align="center">
   <a href="https://github.com/lacymorrow/movie-info">
-    <img src=".github/assets/logo-horizontal.svg" alt="movie-info" width="320">
+    <img src="https://raw.githubusercontent.com/lacymorrow/movie-info/master/.github/assets/logo-horizontal.svg" alt="movie-info" width="320">
   </a>
 
   <p><strong>Fetch info, images, ratings, and metadata for any movie</strong> ➔ "Avatar" → <code>{ title, poster_path, vote_average, ... }</code></p>
@@ -87,7 +87,7 @@ movieInfo("Oceans Eleven", "1960").then(
   title: "Crash",
   vote_average: 6.9,
   vote_count: 271,
-  imageBase: "http://image.tmdb.org/t/p/original"
+  imageBase: "https://image.tmdb.org/t/p/original"
 }
 ```
 
@@ -98,7 +98,7 @@ Combine `imageBase` with any returned `*_path` field:
 ```js
 const { imageBase, poster_path } = await movieInfo("Avatar");
 const url = imageBase + poster_path;
-//=> http://image.tmdb.org/t/p/original/pG8LL4LYMCr5uikhx9rewrW8352.jpg
+//=> https://image.tmdb.org/t/p/original/pG8LL4LYMCr5uikhx9rewrW8352.jpg
 ```
 
 ## API
@@ -110,7 +110,7 @@ Returns a Promise that resolves to a movie object.
 | Argument | Type | Required | Description |
 |---|---|:---:|---|
 | `movie` | `string` | ✅ | Movie title to search for |
-| `year` | `string` | | Optional release-year disambiguator |
+| `year` | `string \| number` | | Optional release-year disambiguator |
 | `callback` | `(err, result) => void` | | Optional Node-style callback |
 
 ## CLI
