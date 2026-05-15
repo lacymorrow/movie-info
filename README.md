@@ -1,6 +1,9 @@
 <div align="center">
   <a href="https://github.com/lacymorrow/movie-info">
-    <img src="https://raw.githubusercontent.com/lacymorrow/movie-info/master/.github/assets/logo-horizontal.svg" alt="movie-info" width="320">
+    <picture>
+      <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/lacymorrow/movie-info/master/.github/assets/logo-horizontal-dark.svg">
+      <img src="https://raw.githubusercontent.com/lacymorrow/movie-info/master/.github/assets/logo-horizontal.svg" alt="movie-info" width="320">
+    </picture>
   </a>
 
   <p><strong>Fetch info, images, ratings, and metadata for any movie</strong> ➔ </p>
