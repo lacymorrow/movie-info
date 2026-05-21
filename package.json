@@ -3,7 +3,10 @@
   "version": "3.0.3",
   "description": "Get information, images, rating, description, etc. about a movie.",
   "license": "MIT",
-  "repository": "lacymorrow/movie-info",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lacymorrow/movie-info.git"
+  },
   "main": "index.js",
   "browser": "index.js",
   "author": {
